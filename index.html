@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <title>임새한 ♥ 이예은</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600&family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ============================
+       HERO
+  ============================ -->
+  <section id="hero">
+    <div class="hero-deco hero-deco--tl"></div>
+    <div class="hero-deco hero-deco--br"></div>
+    <div class="hero-content">
+      <p class="hero-label">우리 결혼합니다</p>
+      <div class="hero-names">
+        <span>임새한</span>
+        <span class="hero-heart">♥</span>
+        <span>이예은</span>
+      </div>
+      <p class="hero-date-str">2026 · 08 · 29</p>
+      <p class="hero-time">토요일 오후 4시 30분</p>
+      <p class="hero-venue">웨딩스퀘어 강변</p>
+    </div>
+    <div class="scroll-hint">
+      <div class="scroll-dot"></div>
+    </div>
+  </section>
+
+  <!-- ============================
+       인사말
+  ============================ -->
+  <section id="invite" class="section fade-section">
+    <div class="narrow-container">
+      <div class="gold-line"></div>
+      <p class="invite-text">
+        두 사람이 서로에게 약속합니다.<br />
+        기쁠 때나 슬플 때나<br />
+        언제나 곁에 있을 것을.<br /><br />
+        저희의 행복한 시작을<br />
+        함께해 주신다면<br />
+        더없이 감사하겠습니다.
+      </p>
+      <div class="couple-row">
+        <div class="couple-person">
+          <!-- TODO: 신랑 아버지·어머니 성함을 입력하세요 -->
+          <p class="couple-parent">○○○ · ○○○의 아들</p>
+          <p class="couple-name">임새한</p>
+        </div>
+        <div class="couple-sep"></div>
+        <div class="couple-person">
+          <!-- TODO: 신부 아버지·어머니 성함을 입력하세요 -->
+          <p class="couple-parent">○○○ · ○○○의 딸</p>
+          <p class="couple-name">이예은</p>
+        </div>
+      </div>
+      <div class="gold-line"></div>
+    </div>
+  </section>
+
+  <!-- ============================
+       갤러리
+  ============================ -->
+  <section id="gallery" class="section fade-section">
+    <h2 class="section-title">Gallery</h2>
+    <!--
+      사진이 준비되면 아래 .ph-* div를 <img> 태그로 교체하세요.
+      예: <img class="gallery-item" src="photos/1.jpg" alt="웨딩 사진" />
+    -->
+    <div class="gallery-grid">
+      <div class="gallery-item ph-1">
+        <span class="ph-label">사진 준비 중</span>
+      </div>
+      <div class="gallery-item ph-2">
+        <span class="ph-label">사진 준비 중</span>
+      </div>
+      <div class="gallery-item gallery-item--wide ph-3">
+        <span class="ph-label">사진 준비 중</span>
+      </div>
+      <div class="gallery-item ph-4">
+        <span class="ph-label">사진 준비 중</span>
+      </div>
+      <div class="gallery-item ph-5">
+        <span class="ph-label">사진 준비 중</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+       달력
+  ============================ -->
+  <section id="calendar" class="section fade-section">
+    <h2 class="section-title">Date</h2>
+    <div class="cal-card">
+      <p class="cal-month">2026년 8월</p>
+      <div class="cal-grid">
+        <!-- 요일 헤더 -->
+        <div class="cal-hd cal-hd--sun">일</div>
+        <div class="cal-hd">월</div>
+        <div class="cal-hd">화</div>
+        <div class="cal-hd">수</div>
+        <div class="cal-hd">목</div>
+        <div class="cal-hd">금</div>
+        <div class="cal-hd cal-hd--sat">토</div>
+
+        <!-- 1주: 8월 1일은 토요일 → 빈 칸 6개 -->
+        <div class="cal-empty"></div>
+        <div class="cal-empty"></div>
+        <div class="cal-empty"></div>
+        <div class="cal-empty"></div>
+        <div class="cal-empty"></div>
+        <div class="cal-empty"></div>
+        <div class="cal-day cal-sat">1</div>
+
+        <!-- 2주 -->
+        <div class="cal-day cal-sun">2</div>
+        <div class="cal-day">3</div>
+        <div class="cal-day">4</div>
+        <div class="cal-day">5</div>
+        <div class="cal-day">6</div>
+        <div class="cal-day">7</div>
+        <div class="cal-day cal-sat">8</div>
+
+        <!-- 3주 -->
+        <div class="cal-day cal-sun">9</div>
+        <div class="cal-day">10</div>
+        <div class="cal-day">11</div>
+        <div class="cal-day">12</div>
+        <div class="cal-day">13</div>
+        <div class="cal-day">14</div>
+        <div class="cal-day cal-sat">15</div>
+
+        <!-- 4주 -->
+        <div class="cal-day cal-sun">16</div>
+        <div class="cal-day">17</div>
+        <div class="cal-day">18</div>
+        <div class="cal-day">19</div>
+        <div class="cal-day">20</div>
+        <div class="cal-day">21</div>
+        <div class="cal-day cal-sat">22</div>
+
+        <!-- 5주 — 결혼식 당일 (29일, 토요일) -->
+        <div class="cal-day cal-sun">23</div>
+        <div class="cal-day">24</div>
+        <div class="cal-day">25</div>
+        <div class="cal-day">26</div>
+        <div class="cal-day">27</div>
+        <div class="cal-day">28</div>
+        <div class="cal-day wedding-day">29</div>
+
+        <!-- 6주 -->
+        <div class="cal-day cal-sun">30</div>
+        <div class="cal-day">31</div>
+      </div>
+      <p class="cal-footer">
+        <span class="cal-heart">♥</span>
+        2026년 8월 29일 토요일 오후 4시 30분
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================
+       오시는 길
+  ============================ -->
+  <section id="location" class="section fade-section">
+    <h2 class="section-title">오시는 길</h2>
+
+    <div class="venue-card">
+      <p class="venue-name">웨딩스퀘어 강변</p>
+      <p class="venue-addr">서울 광진구 광나루로56길 85<br />테크노마트 3, 4층</p>
+      <div class="map-btns">
+        <a class="map-btn map-btn--kakao"
+           href="https://map.kakao.com/link/search/웨딩스퀘어강변"
+           target="_blank" rel="noopener">카카오맵</a>
+        <a class="map-btn map-btn--naver"
+           href="https://map.naver.com/v5/search/웨딩스퀘어강변"
+           target="_blank" rel="noopener">네이버지도</a>
+      </div>
+    </div>
+
+    <div class="transport-list">
+      <div class="transport-item">
+        <span class="transport-icon">🚇</span>
+        <div>
+          <strong>지하철</strong>
+          <p>2호선 강변역 1번 출구 도보 3분</p>
+        </div>
+      </div>
+      <div class="transport-item">
+        <span class="transport-icon">🚌</span>
+        <div>
+          <strong>버스</strong>
+          <p>강변역·테크노마트 정류장 하차</p>
+        </div>
+      </div>
+      <div class="transport-item">
+        <span class="transport-icon">🚗</span>
+        <div>
+          <strong>주차</strong>
+          <p>테크노마트 주차장 이용 가능</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+       축의금 계좌
+  ============================ -->
+  <section id="account" class="section fade-section">
+    <h2 class="section-title">마음 전하기</h2>
+    <div class="account-card">
+      <div class="account-item">
+        <p class="account-role">신랑</p>
+        <p class="account-name">임새한</p>
+        <div class="account-row">
+          <span class="account-bank">국민은행</span>
+          <!-- TODO: 실제 계좌번호로 교체하세요 -->
+          <span class="account-num" id="groom-account">000000-00-000000</span>
+          <button class="copy-btn" data-target="groom-account">복사</button>
+        </div>
+      </div>
+      <div class="account-divider"></div>
+      <div class="account-item">
+        <p class="account-role">신부</p>
+        <p class="account-name">이예은</p>
+        <div class="account-row">
+          <span class="account-bank">국민은행</span>
+          <!-- TODO: 실제 계좌번호로 교체하세요 -->
+          <span class="account-num" id="bride-account">000000-00-000000</span>
+          <button class="copy-btn" data-target="bride-account">복사</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+       방명록
+  ============================ -->
+  <section id="guestbook" class="section fade-section">
+    <h2 class="section-title">방명록</h2>
+    <div class="gb-form-card">
+      <input id="gb-name" type="text" placeholder="이름" maxlength="10" />
+      <input id="gb-pw" type="password" placeholder="비밀번호 (삭제 시 필요)" maxlength="20" />
+      <textarea id="gb-msg" placeholder="축하 메시지를 남겨주세요 ♥" rows="3" maxlength="200"></textarea>
+      <button id="gb-submit" class="btn-primary">남기기</button>
+    </div>
+    <div id="gb-list">
+      <p class="gb-empty">불러오는 중...</p>
+    </div>
+  </section>
+
+  <!-- ============================
+       FOOTER
+  ============================ -->
+  <footer>
+    <p>임새한 ♥ 이예은</p>
+    <p>2026 · 08 · 29</p>
+  </footer>
+
+  <!-- Firebase SDK (compat) -->
+  <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore-compat.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
