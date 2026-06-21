@@ -60,7 +60,8 @@ document.querySelectorAll(".fade-section").forEach((el) => observer.observe(el))
 document.querySelectorAll(".copy-btn").forEach((btn) => {
   btn.addEventListener("click", () => {
     const targetId = btn.dataset.target;
-    const text = document.getElementById(targetId)?.textContent?.trim();
+    const el = document.getElementById(targetId);
+    const text = el?.dataset.copy || el?.textContent?.trim();
     if (!text) return;
 
     const copyFn = () => {
