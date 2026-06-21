@@ -94,13 +94,23 @@ body {
   height: 100%;
   object-fit: cover;
   object-position: center top;
+  border-radius: 20px;
 }
 
 /* 스크롤 힌트 */
 .scroll-hint {
   position: relative;
   z-index: 1;
-  margin: 0 auto 41px;
+  margin: 0 auto 46px;
+}
+
+.hero-date-text {
+  font-family: 'Geologica', sans-serif;
+  font-size: 26.7pt;
+  color: #fffbbd;
+  margin-top: 10px;
+  text-align: center;
+  white-space: nowrap;
 }
 
 .scroll-dot {
