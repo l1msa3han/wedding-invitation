@@ -24,7 +24,7 @@
 html { scroll-behavior: smooth; }
 
 body {
-  background: var(--bg);
+  background: #ffffff;
   color: var(--text);
   font-family: var(--ff-sans);
   font-size: 14px;
