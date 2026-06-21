@@ -100,14 +100,14 @@ body {
 .scroll-hint {
   position: relative;
   z-index: 1;
-  margin: 0 auto 36px;
+  margin: 0 auto 51px;
 }
 
 .scroll-dot {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: var(--accent);
+  background: #fffbbd;
   animation: bounce 1.6s ease-in-out infinite;
 }
 
