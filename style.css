@@ -100,7 +100,7 @@ body {
 .scroll-hint {
   position: relative;
   z-index: 1;
-  margin: 0 auto 46px;
+  margin: 0 auto 41px;
 }
 
 .scroll-dot {
@@ -113,7 +113,7 @@ body {
 
 @keyframes bounce {
   0%, 100% { transform: translateY(0); opacity: 1; }
-  50%       { transform: translateY(9px); opacity: 0.3; }
+  50%       { transform: translateY(4px); opacity: 0.3; }
 }
 
 @keyframes fadeUp {
@@ -267,10 +267,12 @@ body {
   font-size: 13px;
   font-weight: 300;
   color: var(--text);
+  width: 34px;
   height: 34px;
   line-height: 34px;
   border-radius: 50%;
   cursor: default;
+  margin: 0 auto;
 }
 .cal-sun { color: var(--red); }
 .cal-sat { color: var(--accent); }
