@@ -1,0 +1,597 @@
+/* ============================================================
+   CSS 변수 & 리셋
+============================================================ */
+:root {
+  --bg:           #FAF8F4;
+  --card:         #FFFFFF;
+  --accent:       #C9A868;
+  --accent-dark:  #9A7A40;
+  --accent-light: #EDE5D4;
+  --text:         #2D2424;
+  --text-sub:     #7A6855;
+  --text-muted:   #B0A090;
+  --border:       #E8DCCB;
+  --hero-bg:      #1E1A17;
+  --red:          #C27070;
+
+  --ff-serif: 'Noto Serif KR', serif;
+  --ff-sans:  'Noto Sans KR', sans-serif;
+  --max-w:    480px;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--ff-sans);
+  font-size: 14px;
+  line-height: 1.7;
+  max-width: var(--max-w);
+  margin: 0 auto;
+  overflow-x: hidden;
+}
+
+/* ============================================================
+   공통 섹션 레이아웃
+============================================================ */
+.section {
+  padding: 72px 24px;
+}
+
+.narrow-container {
+  max-width: 340px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-family: var(--ff-serif);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: var(--accent);
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.gold-line {
+  width: 36px;
+  height: 1px;
+  background: var(--accent);
+  margin: 0 auto 40px;
+}
+
+/* Fade-in on scroll */
+.fade-section {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.75s ease, transform 0.75s ease;
+}
+.fade-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================================================
+   HERO
+============================================================ */
+#hero {
+  position: relative;
+  height: 100svh;
+  min-height: 600px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+}
+
+.hero-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+/* 스크롤 힌트 */
+.scroll-hint {
+  position: relative;
+  z-index: 1;
+  margin: 0 auto 41px;
+}
+
+.scroll-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #fffbbd;
+  animation: bounce 1.6s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); opacity: 1; }
+  50%       { transform: translateY(4px); opacity: 0.3; }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ============================================================
+   인사말
+============================================================ */
+#invite {
+  background: var(--card);
+  text-align: center;
+}
+
+.invite-text {
+  font-family: var(--ff-serif);
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 2.3;
+  color: var(--text);
+  margin-bottom: 48px;
+}
+
+.couple-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  margin-bottom: 40px;
+}
+
+.couple-person { text-align: center; }
+
+.couple-parent {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+  letter-spacing: 0.3px;
+}
+
+.couple-name {
+  font-family: var(--ff-serif);
+  font-size: 19px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  color: var(--text);
+}
+
+.couple-sep {
+  width: 1px;
+  height: 48px;
+  background: var(--border);
+  flex-shrink: 0;
+}
+
+/* ============================================================
+   갤러리
+============================================================ */
+#gallery {
+  background: var(--bg);
+  padding-bottom: 60px;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 3px;
+  aspect-ratio: 3/4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 가운데 항목은 가로 전체 폭 */
+.gallery-item--wide {
+  grid-column: span 2;
+  aspect-ratio: 16/9;
+}
+
+/* 플레이스홀더 그라데이션 */
+.ph-1 { background: linear-gradient(145deg, #EDE5D4 0%, #D4C5A9 100%); }
+.ph-2 { background: linear-gradient(145deg, #E2D8C5 0%, #CAAF84 100%); }
+.ph-3 { background: linear-gradient(145deg, #D8CDBC 0%, #E8DDD0 60%, #D0BFA4 100%); }
+.ph-4 { background: linear-gradient(145deg, #DDD0B8 0%, #C9A868 100%); }
+.ph-5 { background: linear-gradient(145deg, #EAE0D0 0%, #D4BEA0 100%); }
+
+.ph-label {
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: rgba(255,255,255,.7);
+  font-weight: 300;
+  background: rgba(45,36,36,.15);
+  padding: 6px 12px;
+  border-radius: 20px;
+}
+
+/* ============================================================
+   달력
+============================================================ */
+#calendar {
+  background: var(--card);
+}
+
+.cal-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 32px 20px 24px;
+  max-width: 360px;
+  margin: 0 auto;
+}
+
+.cal-month {
+  font-family: var(--ff-serif);
+  font-size: 15px;
+  font-weight: 400;
+  text-align: center;
+  color: var(--text);
+  letter-spacing: 2px;
+  margin-bottom: 24px;
+}
+
+.cal-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+  margin-bottom: 24px;
+}
+
+.cal-hd {
+  text-align: center;
+  font-size: 11px;
+  color: var(--text-muted);
+  font-weight: 400;
+  padding: 0 0 12px;
+}
+.cal-hd--sun { color: var(--red); }
+.cal-hd--sat { color: var(--accent); }
+
+.cal-empty { height: 34px; }
+
+.cal-day {
+  text-align: center;
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--text);
+  width: 34px;
+  height: 34px;
+  line-height: 34px;
+  border-radius: 50%;
+  cursor: default;
+  margin: 0 auto;
+}
+.cal-sun { color: var(--red); }
+.cal-sat { color: var(--accent); }
+
+/* 결혼식 날 */
+.wedding-day {
+  background: var(--accent);
+  color: #fff !important;
+  font-weight: 600;
+  animation: pulse 2.2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 0   rgba(201,168,104,.5); }
+  50%       { box-shadow: 0 0 0 8px rgba(201,168,104,.0); }
+}
+
+.cal-footer {
+  text-align: center;
+  font-family: var(--ff-serif);
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--text-sub);
+  border-top: 1px solid var(--border);
+  padding-top: 20px;
+  letter-spacing: 0.5px;
+}
+
+.cal-heart {
+  color: var(--accent);
+  margin-right: 6px;
+}
+
+/* ============================================================
+   오시는 길
+============================================================ */
+#location {
+  background: var(--bg);
+}
+
+.venue-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 30px 24px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.venue-name {
+  font-family: var(--ff-serif);
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+.venue-addr {
+  font-size: 13px;
+  color: var(--text-sub);
+  line-height: 1.9;
+  margin-bottom: 24px;
+}
+
+.map-btns {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+
+.map-btn {
+  display: inline-block;
+  padding: 10px 22px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: opacity .2s;
+}
+.map-btn:hover { opacity: .8; }
+
+.map-btn--kakao { background: #FAE100; color: #3A1D1D; }
+.map-btn--naver { background: #03C75A; color: #fff; }
+
+.transport-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.transport-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px 20px;
+}
+
+.transport-icon { font-size: 20px; flex-shrink: 0; line-height: 1.4; }
+
+.transport-item strong {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 3px;
+}
+
+.transport-item p {
+  font-size: 12px;
+  color: var(--text-sub);
+  font-weight: 300;
+}
+
+/* ============================================================
+   축의금 계좌
+============================================================ */
+#account {
+  background: var(--card);
+}
+
+.account-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+  max-width: 360px;
+  margin: 0 auto;
+}
+
+.account-item {
+  padding: 28px 24px;
+  text-align: center;
+}
+
+.account-role {
+  font-size: 10px;
+  letter-spacing: 4px;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+
+.account-name {
+  font-family: var(--ff-serif);
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  margin-bottom: 16px;
+  color: var(--text);
+}
+
+.account-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.account-bank {
+  font-size: 12px;
+  color: var(--text-sub);
+}
+
+.account-num {
+  font-family: monospace;
+  font-size: 14px;
+  letter-spacing: 1px;
+  color: var(--text);
+}
+
+.copy-btn {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  padding: 5px 16px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-family: var(--ff-sans);
+  cursor: pointer;
+  transition: background .2s, transform .1s;
+}
+.copy-btn:hover  { background: var(--accent-dark); }
+.copy-btn:active { transform: scale(.95); }
+.copy-btn.copied { background: #7A9E7A; }
+
+.account-divider {
+  height: 1px;
+  background: var(--border);
+  margin: 0 24px;
+}
+
+/* ============================================================
+   방명록
+============================================================ */
+#guestbook {
+  background: var(--bg);
+}
+
+.gb-form-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 24px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.gb-form-card input,
+.gb-form-card textarea {
+  width: 100%;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 11px 14px;
+  font-family: var(--ff-sans);
+  font-size: 14px;
+  color: var(--text);
+  outline: none;
+  resize: none;
+  transition: border-color .2s;
+}
+.gb-form-card input:focus,
+.gb-form-card textarea:focus { border-color: var(--accent); }
+.gb-form-card input::placeholder,
+.gb-form-card textarea::placeholder { color: var(--text-muted); }
+
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  padding: 13px;
+  border-radius: 8px;
+  font-family: var(--ff-sans);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  letter-spacing: 1px;
+  transition: background .2s;
+}
+.btn-primary:hover    { background: var(--accent-dark); }
+.btn-primary:disabled { opacity: .6; cursor: not-allowed; }
+
+/* 방명록 목록 */
+#gb-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.gb-empty {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 13px;
+  padding: 24px;
+}
+
+.gb-item {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 18px 20px;
+}
+
+.gb-item-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.gb-author {
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--text);
+}
+
+.gb-date {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.gb-message {
+  font-size: 13px;
+  color: var(--text-sub);
+  line-height: 1.8;
+  white-space: pre-wrap;
+  margin-bottom: 12px;
+}
+
+.gb-del-btn {
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-family: var(--ff-sans);
+  cursor: pointer;
+  transition: all .2s;
+}
+.gb-del-btn:hover { border-color: var(--red); color: var(--red); }
+
+/* ============================================================
+   Footer
+============================================================ */
+footer {
+  background: var(--hero-bg);
+  text-align: center;
+  padding: 40px 24px;
+  color: rgba(255,255,255,.35);
+  font-size: 12px;
+  letter-spacing: 2px;
+  line-height: 2.2;
+  font-weight: 300;
+  font-family: var(--ff-serif);
+}
