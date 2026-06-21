@@ -20,12 +20,13 @@
       }
 ============================================================ */
 const firebaseConfig = {
-  apiKey:            "YOUR_API_KEY",
-  authDomain:        "YOUR_PROJECT_ID.firebaseapp.com",
-  projectId:         "YOUR_PROJECT_ID",
-  storageBucket:     "YOUR_PROJECT_ID.appspot.com",
-  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-  appId:             "YOUR_APP_ID"
+  apiKey:            "AIzaSyAc9Hewa18HLmEcBo1WV4l-o4oTIktgvFA",
+  authDomain:        "wedding-invitation-guest-b551b.firebaseapp.com",
+  projectId:         "wedding-invitation-guest-b551b",
+  storageBucket:     "wedding-invitation-guest-b551b.firebasestorage.app",
+  messagingSenderId: "757945957337",
+  appId:             "1:757945957337:web:f2b9ac71efd4162f19f7c8",
+  measurementId:     "G-N6C4YDNJQY"
 };
 
 // ─── Firebase 초기화 ───────────────────────────────────────
