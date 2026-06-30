@@ -63,21 +63,11 @@
       예: <img class="gallery-item" src="photos/1.jpg" alt="웨딩 사진" />
     -->
     <div class="gallery-grid">
-      <div class="gallery-item ph-1">
-        <span class="ph-label">사진 준비 중</span>
-      </div>
-      <div class="gallery-item ph-2">
-        <span class="ph-label">사진 준비 중</span>
-      </div>
-      <div class="gallery-item gallery-item--wide ph-3">
-        <span class="ph-label">사진 준비 중</span>
-      </div>
-      <div class="gallery-item ph-4">
-        <span class="ph-label">사진 준비 중</span>
-      </div>
-      <div class="gallery-item ph-5">
-        <span class="ph-label">사진 준비 중</span>
-      </div>
+      <img class="gallery-item" src="photos/gallery1.jpg" alt="웨딩 사진" />
+      <img class="gallery-item" src="photos/gallery2.jpg" alt="웨딩 사진" />
+      <img class="gallery-item gallery-item--wide" src="photos/gallery3.jpg" alt="웨딩 사진" />
+      <img class="gallery-item" src="photos/gallery4.jpg" alt="웨딩 사진" />
+      <img class="gallery-item" src="photos/gallery5.jpg" alt="웨딩 사진" />
     </div>
   </section>
 
@@ -251,6 +241,19 @@
     <p>2026 · 08 · 29</p>
     <p>토요일 오후 4시 30분</p>
   </footer>
+
+  <!-- 갤러리 라이트박스 -->
+  <div id="lightbox" class="lightbox">
+    <button class="lb-close">✕</button>
+    <div class="lb-track">
+      <img class="lb-img" src="" alt="" />
+    </div>
+    <div class="lb-arrows">
+      <span class="lb-arrow lb-prev">‹</span>
+      <div class="lb-dots"></div>
+      <span class="lb-arrow lb-next">›</span>
+    </div>
+  </div>
 
   <!-- Firebase SDK (compat) -->
   <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app-compat.js"></script>

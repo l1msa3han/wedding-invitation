@@ -199,6 +199,69 @@ async function deleteEntry(id) {
   }
 }
 
+// ─── 갤러리 라이트박스 ────────────────────────────────────
+const lightbox  = document.getElementById("lightbox");
+const lbImg     = lightbox.querySelector(".lb-img");
+const lbDots    = lightbox.querySelector(".lb-dots");
+const lbPrev    = lightbox.querySelector(".lb-prev");
+const lbNext    = lightbox.querySelector(".lb-next");
+const lbClose   = lightbox.querySelector(".lb-close");
+
+const galleryImgs = [...document.querySelectorAll(".gallery-grid .gallery-item")];
+let lbIndex = 0;
+
+function lbOpen(index) {
+  lbIndex = index;
+  lbUpdate();
+  lightbox.classList.add("open");
+  document.body.style.overflow = "hidden";
+}
+
+function lbClose_() {
+  lightbox.classList.remove("open");
+  document.body.style.overflow = "";
+}
+
+function lbUpdate() {
+  const src = galleryImgs[lbIndex].src;
+  lbImg.src = src;
+  lbDots.innerHTML = galleryImgs.map((_, i) =>
+    `<div class="lb-dot${i === lbIndex ? " active" : ""}"></div>`
+  ).join("");
+}
+
+function lbMove(dir) {
+  lbIndex = (lbIndex + dir + galleryImgs.length) % galleryImgs.length;
+  lbUpdate();
+}
+
+galleryImgs.forEach((img, i) => img.addEventListener("click", () => lbOpen(i)));
+lbClose.addEventListener("click", lbClose_);
+lbPrev.addEventListener("click", () => lbMove(-1));
+lbNext.addEventListener("click", () => lbMove(1));
+lightbox.addEventListener("click", (e) => { if (e.target === lightbox) lbClose_(); });
+
+// 터치 스와이프
+let touchStartX = 0;
+lightbox.addEventListener("touchstart", (e) => { touchStartX = e.touches[0].clientX; }, { passive: true });
+lightbox.addEventListener("touchend", (e) => {
+  const diff = touchStartX - e.changedTouches[0].clientX;
+  if (Math.abs(diff) > 40) lbMove(diff > 0 ? 1 : -1);
+});
+
+// 마우스 드래그 스와이프
+let mouseStartX = 0;
+let isDragging = false;
+lightbox.addEventListener("mousedown", (e) => { mouseStartX = e.clientX; isDragging = true; });
+lightbox.addEventListener("mouseup", (e) => {
+  if (!isDragging) return;
+  isDragging = false;
+  const diff = mouseStartX - e.clientX;
+  if (Math.abs(diff) > 40) lbMove(diff > 0 ? 1 : -1);
+});
+lightbox.addEventListener("mouseleave", () => { isDragging = false; });
+document.addEventListener("keydown", (e) => { if (e.key === "Escape") lbClose_(); });
+
 // ─── XSS 방지 ─────────────────────────────────────────────
 function escape(str) {
   const div = document.createElement("div");

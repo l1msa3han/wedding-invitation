@@ -223,6 +223,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100%;
+  object-fit: cover;
 }
 
 /* 가운데 항목은 가로 전체 폭 */
@@ -611,6 +613,89 @@ body {
   transition: all .2s;
 }
 .gb-del-btn:hover { border-color: var(--red); color: var(--red); }
+
+/* ============================================================
+   갤러리 라이트박스
+============================================================ */
+.gallery-item { cursor: pointer; }
+
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.92);
+  z-index: 1000;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.lightbox.open { display: flex; }
+
+.lb-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 1001;
+  padding: 8px;
+}
+
+.lb-track {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 16px;
+}
+
+.lb-img {
+  max-width: 100%;
+  max-height: 80svh;
+  object-fit: contain;
+  border-radius: 8px;
+  user-select: none;
+  pointer-events: none;
+}
+
+.lb-arrows {
+  position: absolute;
+  bottom: 36px;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.lb-arrow {
+  color: rgba(255,255,255,.7);
+  font-size: 36px;
+  cursor: pointer;
+  padding: 0 8px;
+  line-height: 1;
+  user-select: none;
+}
+.lb-arrow:active { color: #fff; }
+
+.lb-dots {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.lb-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.35);
+  transition: background .2s;
+}
+.lb-dot.active { background: #fff; }
 
 /* ============================================================
    Footer
