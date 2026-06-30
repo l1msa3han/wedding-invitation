@@ -316,8 +316,13 @@ lightbox.addEventListener("click", (e) => { if (e.target === lightbox || e.targe
 
 // 터치 스와이프
 let touchStartX = 0;
-lightbox.addEventListener("touchstart", (e) => { touchStartX = e.touches[0].clientX; }, { passive: true });
+let touchIsMulti = false;
+lightbox.addEventListener("touchstart", (e) => {
+  touchIsMulti = e.touches.length > 1;
+  touchStartX = e.touches[0].clientX;
+}, { passive: true });
 lightbox.addEventListener("touchend", (e) => {
+  if (touchIsMulti || e.changedTouches.length > 1) return;
   const diff = touchStartX - e.changedTouches[0].clientX;
   if (Math.abs(diff) > 40) activeMoveDir?.(diff > 0 ? 1 : -1);
 });
