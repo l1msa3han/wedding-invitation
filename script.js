@@ -222,6 +222,9 @@ const GALLERY = [
   "photos/gallery7.JPG",
   "photos/gallery8.jpg",
   "photos/gallery9.jpg",
+  "photos/gallery10.jpg",
+  "photos/gallery11.jpg",
+  "photos/gallery12.jpg",
 ];
 
 const fullGallery = document.getElementById("full-gallery");
