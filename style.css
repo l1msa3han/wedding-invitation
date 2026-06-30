@@ -95,7 +95,7 @@ body {
   object-fit: cover;
   object-position: center top;
   border-radius: 40px;
-  animation: fadeUp 1s ease 0.3s both;
+  animation: fadeUp 1s ease 0.3s both, peekPhoto 7s ease 7s infinite;
 }
 
 /* 스크롤 힌트 */
@@ -106,7 +106,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  animation: fadeUp 1s ease 0.6s both;
+  animation: fadeUp 1s ease 0.6s both, peekScroll 7s ease 7s infinite;
 }
 
 .hero-date-text {
@@ -136,6 +136,20 @@ body {
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(18px); }
   to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes peekPhoto {
+  0%, 35%, 100% { bottom: 15px; height: calc(100% - 30px); }
+  9%            { bottom: 43px; height: calc(100% - 58px); }
+  18%           { bottom: 15px; height: calc(100% - 30px); }
+  27%           { bottom: 43px; height: calc(100% - 58px); }
+}
+
+@keyframes peekScroll {
+  0%, 35%, 100% { transform: translateY(0); }
+  9%            { transform: translateY(-28px); }
+  18%           { transform: translateY(0); }
+  27%           { transform: translateY(-28px); }
 }
 
 /* ============================================================
