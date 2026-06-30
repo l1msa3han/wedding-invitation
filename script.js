@@ -309,7 +309,7 @@ galleryImgs.forEach((img, i) => img.addEventListener("click", () => {
 lbClose.addEventListener("click", lbClose_);
 lbPrev.addEventListener("click", () => activeMoveDir?.(-1));
 lbNext.addEventListener("click", () => activeMoveDir?.(1));
-lightbox.addEventListener("click", (e) => { if (e.target === lightbox) lbClose_(); });
+lightbox.addEventListener("click", (e) => { if (e.target === lightbox || e.target === lightbox.querySelector(".lb-track")) lbClose_(); });
 
 // 터치 스와이프
 let touchStartX = 0;

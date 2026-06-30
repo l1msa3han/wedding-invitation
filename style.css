@@ -772,8 +772,14 @@ body {
   font-size: 36px;
   cursor: pointer;
   padding: 0 8px;
-  line-height: 1;
   user-select: none;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 44px;
+  transform: translateY(-5px);
 }
 .lb-arrow:active { color: #fff; }
 
@@ -781,6 +787,7 @@ body {
   display: flex;
   gap: 6px;
   align-items: center;
+  height: 44px;
 }
 
 .lb-dot {
