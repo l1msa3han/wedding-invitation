@@ -207,8 +207,70 @@ const lbPrev    = lightbox.querySelector(".lb-prev");
 const lbNext    = lightbox.querySelector(".lb-next");
 const lbClose   = lightbox.querySelector(".lb-close");
 
-const galleryImgs = [...document.querySelectorAll(".gallery-grid .gallery-item")];
+const galleryImgs = [...document.querySelectorAll(".gallery-grid .gallery-item:not(.gallery-more)")];
 let lbIndex = 0;
+
+// ─── 전체 갤러리 ──────────────────────────────────────────
+const fullGallery = document.getElementById("full-gallery");
+const fgGrid      = fullGallery.querySelector(".fg-grid");
+let   fgSrcs      = ["photos/gallery1.jpg","photos/gallery2.jpg","photos/gallery3.jpg",
+                     "photos/gallery4.jpg","photos/gallery5.jpg"];
+
+function openFullGallery() {
+  fullGallery.classList.add("open");
+  document.body.style.overflow = "hidden";
+}
+function closeFullGallery() {
+  fullGallery.classList.remove("open");
+  document.body.style.overflow = "";
+}
+
+document.querySelector(".gallery-more").addEventListener("click", openFullGallery);
+document.querySelector(".fg-back").addEventListener("click", closeFullGallery);
+document.querySelector(".fg-back--bottom").addEventListener("click", closeFullGallery);
+
+function buildFgGrid() {
+  fgGrid.innerHTML = "";
+  fgSrcs.forEach((src, i) => {
+    const img = document.createElement("img");
+    img.className = "fg-item";
+    img.src = src;
+    img.alt = "웨딩 사진";
+    img.addEventListener("click", () => fgLbOpen(i));
+    fgGrid.appendChild(img);
+  });
+}
+
+// gallery6~50 자동 감지
+(function loadExtra() {
+  let i = 6;
+  function tryNext() {
+    if (i > 50) return;
+    const img = new Image();
+    img.onload = () => { fgSrcs.push(`photos/gallery${i}.jpg`); buildFgGrid(); i++; tryNext(); };
+    img.onerror = () => { i++; tryNext(); };
+    img.src = `photos/gallery${i}.jpg`;
+  }
+  tryNext();
+})();
+
+buildFgGrid();
+
+// 전체 갤러리 라이트박스
+let fgLbIndex = 0;
+function fgLbOpen(i) {
+  fgLbIndex = i;
+  fgLbUpdate();
+  lightbox.classList.add("open");
+  lbPrev.onclick = () => { fgLbIndex = (fgLbIndex - 1 + fgSrcs.length) % fgSrcs.length; fgLbUpdate(); };
+  lbNext.onclick = () => { fgLbIndex = (fgLbIndex + 1) % fgSrcs.length; fgLbUpdate(); };
+}
+function fgLbUpdate() {
+  lbImg.src = fgSrcs[fgLbIndex];
+  lbDots.innerHTML = fgSrcs.map((_, j) =>
+    `<div class="lb-dot${j === fgLbIndex ? " active" : ""}"></div>`
+  ).join("");
+}
 
 function lbOpen(index) {
   lbIndex = index;
@@ -231,7 +293,13 @@ function lbUpdate() {
 }
 
 function lbMove(dir) {
-  lbIndex = (lbIndex + dir + galleryImgs.length) % galleryImgs.length;
+  const next = lbIndex + dir;
+  if (next >= galleryImgs.length) {
+    lbClose_();
+    openFullGallery();
+    return;
+  }
+  lbIndex = Math.max(0, next);
   lbUpdate();
 }
 

@@ -67,7 +67,9 @@
       <img class="gallery-item" src="photos/gallery2.jpg" alt="웨딩 사진" />
       <img class="gallery-item gallery-item--wide" src="photos/gallery3.jpg" alt="웨딩 사진" />
       <img class="gallery-item" src="photos/gallery4.jpg" alt="웨딩 사진" />
-      <img class="gallery-item" src="photos/gallery5.jpg" alt="웨딩 사진" />
+      <div class="gallery-item gallery-more" style="background-image: url('photos/gallery5.jpg')">
+        <span class="gallery-more-label">+ 더 보기</span>
+      </div>
     </div>
   </section>
 
@@ -241,6 +243,16 @@
     <p>2026 · 08 · 29</p>
     <p>토요일 오후 4시 30분</p>
   </footer>
+
+  <!-- 전체 갤러리 -->
+  <div id="full-gallery">
+    <div class="fg-header">
+      <button class="fg-back">← 돌아가기</button>
+      <span class="fg-title">Gallery</span>
+    </div>
+    <div class="fg-grid"></div>
+    <button class="fg-back fg-back--bottom">← 돌아가기</button>
+  </div>
 
   <!-- 갤러리 라이트박스 -->
   <div id="lightbox" class="lightbox">
