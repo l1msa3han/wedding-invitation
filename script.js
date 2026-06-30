@@ -251,12 +251,16 @@ document.querySelector(".fg-back--bottom").addEventListener("click", closeFullGa
 
 // 전체 갤러리 라이트박스
 let fgLbIndex = 0;
+function fgMove(dir) {
+  fgLbIndex = (fgLbIndex + dir + GALLERY.length) % GALLERY.length;
+  fgLbUpdate();
+}
+
 function fgLbOpen(i) {
   fgLbIndex = i;
   fgLbUpdate();
+  activeMoveDir = fgMove;
   lightbox.classList.add("open");
-  lbPrev.onclick = () => { fgLbIndex = (fgLbIndex - 1 + GALLERY.length) % GALLERY.length; fgLbUpdate(); };
-  lbNext.onclick = () => { fgLbIndex = (fgLbIndex + 1) % GALLERY.length; fgLbUpdate(); };
 }
 function fgLbUpdate() {
   lbImg.src = GALLERY[fgLbIndex];
@@ -285,6 +289,8 @@ function lbUpdate() {
   ).join("");
 }
 
+let activeMoveDir = null; // 현재 활성 라이트박스의 이동 함수
+
 function lbMove(dir) {
   const next = lbIndex + dir;
   if (next >= galleryImgs.length) {
@@ -296,10 +302,13 @@ function lbMove(dir) {
   lbUpdate();
 }
 
-galleryImgs.forEach((img, i) => img.addEventListener("click", () => lbOpen(i)));
+galleryImgs.forEach((img, i) => img.addEventListener("click", () => {
+  activeMoveDir = lbMove;
+  lbOpen(i);
+}));
 lbClose.addEventListener("click", lbClose_);
-lbPrev.addEventListener("click", () => lbMove(-1));
-lbNext.addEventListener("click", () => lbMove(1));
+lbPrev.addEventListener("click", () => activeMoveDir?.(-1));
+lbNext.addEventListener("click", () => activeMoveDir?.(1));
 lightbox.addEventListener("click", (e) => { if (e.target === lightbox) lbClose_(); });
 
 // 터치 스와이프
@@ -307,7 +316,7 @@ let touchStartX = 0;
 lightbox.addEventListener("touchstart", (e) => { touchStartX = e.touches[0].clientX; }, { passive: true });
 lightbox.addEventListener("touchend", (e) => {
   const diff = touchStartX - e.changedTouches[0].clientX;
-  if (Math.abs(diff) > 40) lbMove(diff > 0 ? 1 : -1);
+  if (Math.abs(diff) > 40) activeMoveDir?.(diff > 0 ? 1 : -1);
 });
 
 // 마우스 드래그 스와이프
