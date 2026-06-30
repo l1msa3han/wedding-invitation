@@ -691,7 +691,7 @@ body {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2px;
-  flex: 1;
+  align-content: start;
 }
 
 .fg-item {
@@ -700,6 +700,7 @@ body {
   object-fit: cover;
   cursor: pointer;
   display: block;
+  min-height: 0;
 }
 
 .fg-back--bottom {

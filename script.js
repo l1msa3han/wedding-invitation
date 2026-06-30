@@ -211,10 +211,30 @@ const galleryImgs = [...document.querySelectorAll(".gallery-grid .gallery-item:n
 let lbIndex = 0;
 
 // ─── 전체 갤러리 ──────────────────────────────────────────
+// 사진 추가 시 여기에 파일명만 추가하면 됩니다
+const GALLERY = [
+  "photos/gallery1.jpg",
+  "photos/gallery2.jpg",
+  "photos/gallery3.jpg",
+  "photos/gallery4.jpg",
+  "photos/gallery5.jpg",
+  "photos/gallery6.jpg",
+  "photos/gallery7.JPG",
+  "photos/gallery8.jpg",
+  "photos/gallery9.jpg",
+];
+
 const fullGallery = document.getElementById("full-gallery");
 const fgGrid      = fullGallery.querySelector(".fg-grid");
-let   fgSrcs      = ["photos/gallery1.jpg","photos/gallery2.jpg","photos/gallery3.jpg",
-                     "photos/gallery4.jpg","photos/gallery5.jpg"];
+
+GALLERY.forEach((src, i) => {
+  const img = document.createElement("img");
+  img.className = "fg-item";
+  img.src = src;
+  img.alt = "웨딩 사진";
+  img.addEventListener("click", () => fgLbOpen(i));
+  fgGrid.appendChild(img);
+});
 
 function openFullGallery() {
   fullGallery.classList.add("open");
@@ -229,45 +249,18 @@ document.querySelector(".gallery-more").addEventListener("click", openFullGaller
 document.querySelector(".fg-back").addEventListener("click", closeFullGallery);
 document.querySelector(".fg-back--bottom").addEventListener("click", closeFullGallery);
 
-function buildFgGrid() {
-  fgGrid.innerHTML = "";
-  fgSrcs.forEach((src, i) => {
-    const img = document.createElement("img");
-    img.className = "fg-item";
-    img.src = src;
-    img.alt = "웨딩 사진";
-    img.addEventListener("click", () => fgLbOpen(i));
-    fgGrid.appendChild(img);
-  });
-}
-
-// gallery6~50 자동 감지
-(function loadExtra() {
-  let i = 6;
-  function tryNext() {
-    if (i > 50) return;
-    const img = new Image();
-    img.onload = () => { fgSrcs.push(`photos/gallery${i}.jpg`); buildFgGrid(); i++; tryNext(); };
-    img.onerror = () => { i++; tryNext(); };
-    img.src = `photos/gallery${i}.jpg`;
-  }
-  tryNext();
-})();
-
-buildFgGrid();
-
 // 전체 갤러리 라이트박스
 let fgLbIndex = 0;
 function fgLbOpen(i) {
   fgLbIndex = i;
   fgLbUpdate();
   lightbox.classList.add("open");
-  lbPrev.onclick = () => { fgLbIndex = (fgLbIndex - 1 + fgSrcs.length) % fgSrcs.length; fgLbUpdate(); };
-  lbNext.onclick = () => { fgLbIndex = (fgLbIndex + 1) % fgSrcs.length; fgLbUpdate(); };
+  lbPrev.onclick = () => { fgLbIndex = (fgLbIndex - 1 + GALLERY.length) % GALLERY.length; fgLbUpdate(); };
+  lbNext.onclick = () => { fgLbIndex = (fgLbIndex + 1) % GALLERY.length; fgLbUpdate(); };
 }
 function fgLbUpdate() {
-  lbImg.src = fgSrcs[fgLbIndex];
-  lbDots.innerHTML = fgSrcs.map((_, j) =>
+  lbImg.src = GALLERY[fgLbIndex];
+  lbDots.innerHTML = GALLERY.map((_, j) =>
     `<div class="lb-dot${j === fgLbIndex ? " active" : ""}"></div>`
   ).join("");
 }
