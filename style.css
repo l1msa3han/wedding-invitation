@@ -95,18 +95,18 @@ body {
   object-fit: cover;
   object-position: center top;
   border-radius: 40px;
-  animation: fadeUp 1s ease 0.3s both, peekPhoto 7s ease 7s infinite;
+  animation: fadeUp 1s ease 0.3s both, peekPhoto 2.4s ease 3s 1 both;
 }
 
 /* 스크롤 힌트 */
 .scroll-hint {
   position: relative;
   z-index: 1;
-  margin: 0 auto 26px;
+  margin: 0 auto 36px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  animation: fadeUp 1s ease 0.6s both, peekScroll 7s ease 7s infinite;
+  animation: fadeUp 1s ease 0.6s both, peekScroll 2.4s ease 3s 1 both;
 }
 
 .hero-date-text {
@@ -124,13 +124,13 @@ body {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #fffbbd;
+  background: #23150b;
   animation: bounce 1.6s ease-in-out infinite;
 }
 
 @keyframes bounce {
   0%, 100% { transform: translateY(0); opacity: 1; }
-  50%       { transform: translateY(4px); opacity: 0.3; }
+  50%       { transform: translateY(9px); opacity: 0.3; }
 }
 
 @keyframes fadeUp {
