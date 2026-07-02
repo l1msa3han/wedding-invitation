@@ -177,7 +177,7 @@ body {
   margin-bottom: 40px;
 }
 
-.couple-person { text-align: center; }
+.couple-person { text-align: center; flex: 1; }
 
 .couple-parent {
   font-size: 11px;
